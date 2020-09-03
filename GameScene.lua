@@ -59,8 +59,18 @@ function   GameScene:createLayer()
     local layer = cc.Layer:create()
     local director = cc.Director:getInstance()
     local sprite = cc.Sprite:create("background.png")
+
     sprite:setPosition(cc.p(size.width/2,size.height/2))
     layer:addChild(sprite)
+
+    local visiblieSize = cc.Director:getInstance():getVisibleSize()
+    local spriteContentSize = sprite:getTextureRect()
+    sprite:setPosition(visiblieSize.width/2, visiblieSize.height/2)
+    sprite:setScaleX(visiblieSize.width/spriteContentSize.width)
+    sprite:setScaleY(visiblieSize.height/spriteContentSize.height)
+    print("x %d,y ",size.width,size.height)
+    print("visiblieSize.width - %d, visiblieSize.height - %d",visiblieSize.width,visiblieSize.height)
+    print("spriteContentSize.width %d---- spriteContentSize.height  %d",spriteContentSize.width,spriteContentSize.height)
     
     local startSprite = cc.Sprite:create("start.png")
     local startSelected = cc.Sprite:create("star.png")

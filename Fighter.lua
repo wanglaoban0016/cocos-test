@@ -6,12 +6,12 @@ local Fighter class("Fighter",function()
     return cc.Sprite:create()
 end)
 
-function Fighter.create(spriteFrameName)
-    local fighter = Fighter.new(spriteFrameName)
+function Fighter.create()
+    local fighter = Fighter.new()
     return fighter
 end
 
-function Fighter:ctor(spriteFrameName)  
+function Fighter:ctor()  
     self.hitPoints = Fighter_hitPoints
-    self:setSpriteFrame(spriteFrameName)
+    
 end
